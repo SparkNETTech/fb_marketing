@@ -6,4 +6,5 @@ Gem::Specification.new do |s|
   s.summary = %q{A full-stack Facebook Marketing API wrapper in Ruby.}
   s.email = "support@sparknettech.com"
   s.homepage = "https://github.com/jdejong/fb_marketing"
+  s.add_dependency('fb_graph2', '~> 0.5.0')
 end
