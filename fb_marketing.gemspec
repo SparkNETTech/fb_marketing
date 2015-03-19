@@ -7,4 +7,9 @@ Gem::Specification.new do |s|
   s.email = "support@sparknettech.com"
   s.homepage = "https://github.com/jdejong/fb_marketing"
   s.add_dependency('fb_graph2', '~> 0.5.0')
+  s.add_development_dependency 'rake'
+  s.add_development_dependency 'simplecov'
+  s.add_development_dependency 'webmock'
+  s.add_development_dependency 'rspec'
+  s.add_development_dependency 'rspec-its'
 end
