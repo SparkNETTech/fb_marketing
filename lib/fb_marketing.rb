@@ -8,3 +8,7 @@ module FbMarketing
 
 	 end
 end
+
+Dir[File.join(__dir__, 'fb_marketing/*.rb')].each do |file|
+  require file
+end
