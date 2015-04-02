@@ -17,10 +17,10 @@ module FbMarketing
 				:url_tags
 			],
 			custom: [
-				:image_crops, # object
-				:object_story_spec, # object
+				:image_crops,
+				:object_story_spec,
 			]
-	    )
+	   )
 
 		def initialize(id, attributes = {})
 	    	super
@@ -30,7 +30,7 @@ module FbMarketing
 	    	if attributes.include?(:object_story_spec)
 	    		# todo
 	    	end
-	    end
+	   end
 
 	end
 end
