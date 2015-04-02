@@ -25,7 +25,7 @@ module FbMarketing
 		def initialize(id, attributes = {})
 	    	super
 	    	if attributes.include?(:image_crops)
-	    		self.image_crops = {'191x100' => {attributes[:image_crops]}}
+	    		self.image_crops = { '191x100' => attributes[:image_crops] }
 	    	end
 	    	if attributes.include?(:object_story_spec)
 	    		# todo
