@@ -2,7 +2,8 @@ module FbMarketing
 	class AdCampaign < FbGraph2::Node
 		
 		register_attributes(
-			raw: [ 
+			raw: [
+				:api_version,
 				:campaign_group_status,
 				:name#,
 				# :buying_type,
