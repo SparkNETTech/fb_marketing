@@ -36,17 +36,17 @@ module FbMarketing
 	    	if attributes.include?(:targeting)
 	    		# todo
 	    		Rails.logger.info attributes[:targeting]
-	    		self.targeting = attributes[:targeting].to_json
+	    		self.targeting = attributes[:targeting]
 	    		Rails.logger.info self.targeting
 	    	end
 	    	if attributes.include?(:start_time)
-	    		self.start_time = (attributes[:start_time].to_s).iso8601
+	    		self.start_time = DateTime.parse(attributes[:start_time].to_s).iso8601.to_s
 	    	end
 	    	if attributes.include?(:end_time)
 	    		if attributes[:end_time] == 0
 	    			self.end_time = 0
 	    		else
-	    			self.end_time = (attributes[:end_time].to_s).iso8601
+	    			self.end_time = DateTime.parse(attributes[:end_time].to_s).iso8601.to_s
 	    		end
 	    	end
 	    end
