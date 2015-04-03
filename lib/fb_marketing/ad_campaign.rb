@@ -3,7 +3,6 @@ module FbMarketing
 		
 		register_attributes(
 			raw: [
-				:api_version,
 				:campaign_group_status,
 				:name#,
 				# :buying_type,

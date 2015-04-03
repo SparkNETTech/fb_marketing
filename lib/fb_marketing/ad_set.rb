@@ -9,10 +9,10 @@ module FbMarketing
 				:daily_budget,
 				# :is_autobid, # bool
 				:lifetime_budget,
-				:name,
 				# :redownload, # bool
+				:name
 			],
-			# looks like fbgraph2 does time as %m/%d/%Y, we need iso8601
+			# looks like fbgraph2 does time as %m/%d/%Y, we need iso8601 or unixtimestamp
 			# time: [ 
 			# 	:start_time, 
 			# 	:end_time	
@@ -31,9 +31,14 @@ module FbMarketing
 	    	super
 	    	if attributes.include?(:bid_info)
 	    		# todo
+	    		# just using our set one for now
+	    		self.bid_info = attributes[:bid_info]
+	    		puts "FB MARKETING BID INFO OUTPUT: #{self.bid_info}"
 	    	end
 	    	if attributes.include?(:targeting)
 	    		# todo
+	    		self.targeting = attributes[:targeting]
+	    		puts "FB MARKETING TARGETING OUTPUT: #{self.targeting}"
 	    	end
 	    	if attributes.include?(:start_time)
 	    		self.start_time = attributes[:start_time].iso8601

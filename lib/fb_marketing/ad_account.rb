@@ -28,10 +28,6 @@ module FbMarketing
 				:amount_spent
 			]
 	    )
-		
-		def initialize(id, attributes = {})
-			super
-		end
 
 	end
 end
