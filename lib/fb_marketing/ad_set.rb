@@ -32,18 +32,16 @@ module FbMarketing
 	    	if attributes.include?(:bid_info)
 	    		# todo
 	    		self.bid_info = attributes[:bid_info]
-	    		puts "FB MARKETING BID INFO OUTPUT: #{self.bid_info}"
 	    	end
 	    	if attributes.include?(:targeting)
 	    		# todo
 	    		self.targeting = attributes[:targeting]
-	    		puts "FB MARKETING TARGETING OUTPUT: #{self.targeting}"
 	    	end
 	    	if attributes.include?(:start_time)
-	    		self.start_time = Time.parse(attributes[:start_time]).iso8601
+	    		self.start_time = attributes[:start_time].to_datetime.iso8601
 	    	end
 	    	if attributes.include?(:end_time)
-	    		self.end_time = Time.parse(attributes[:end_time]).iso8601
+	    		self.end_time = attributes[:end_time].to_datetime.iso8601
 	    	end
 	    end
 
