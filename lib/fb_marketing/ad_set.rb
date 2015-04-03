@@ -38,13 +38,13 @@ module FbMarketing
 	    		self.targeting = attributes[:targeting]
 	    	end
 	    	if attributes.include?(:start_time)
-	    		self.start_time = attributes[:start_time].to_datetime.iso8601
+	    		self.start_time = attributes[:start_time].iso8601.to_s
 	    	end
 	    	if attributes.include?(:end_time)
 	    		if attributes[:end_time] == 0
 	    			self.end_time = 0
 	    		else
-	    			self.end_time = attributes[:end_time].to_datetime.iso8601
+	    			self.end_time = attributes[:end_time].iso8601.to_s
 	    		end
 	    	end
 	    end
