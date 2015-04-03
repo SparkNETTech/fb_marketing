@@ -41,10 +41,10 @@ module FbMarketing
 	    		puts "FB MARKETING TARGETING OUTPUT: #{self.targeting}"
 	    	end
 	    	if attributes.include?(:start_time)
-	    		self.start_time = attributes[:start_time].iso8601
+	    		self.start_time = Time.parse(attributes[:start_time]).iso8601
 	    	end
 	    	if attributes.include?(:end_time)
-	    		self.end_time = attributes[:end_time].iso8601
+	    		self.end_time = Time.parse(attributes[:end_time]).iso8601
 	    	end
 	    end
 
