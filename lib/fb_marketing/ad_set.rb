@@ -35,7 +35,9 @@ module FbMarketing
 	    	end
 	    	if attributes.include?(:targeting)
 	    		# todo
-	    		self.targeting = attributes[:targeting].as_json
+	    		Rails.logger.info attributes[:targeting]
+	    		self.targeting = attributes[:targeting].to_json
+	    		Rails.logger.info self.targeting
 	    	end
 	    	if attributes.include?(:start_time)
 	    		self.start_time = (attributes[:start_time].to_s).iso8601
