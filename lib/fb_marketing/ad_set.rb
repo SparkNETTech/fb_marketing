@@ -35,7 +35,7 @@ module FbMarketing
 	    	end
 	    	if attributes.include?(:targeting)
 	    		# todo
-	    		self.targeting = attributes[:targeting]
+	    		self.targeting = attributes[:targeting].as_json
 	    	end
 	    	if attributes.include?(:start_time)
 	    		self.start_time = (attributes[:start_time].to_s).iso8601
