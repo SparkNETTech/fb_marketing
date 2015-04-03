@@ -9,6 +9,8 @@ module FbMarketing
 				:daily_budget,
 				# :is_autobid, # bool
 				:lifetime_budget,
+				:start_time,
+				:end_time,
 				# :redownload, # bool
 				:name
 			],
@@ -18,8 +20,6 @@ module FbMarketing
 			# 	:end_time	
 			# ],
 			custom: [
-				:start_time, 
-				:end_time,
 				:bid_info, 
 				# :execution_options, # array
 				# :promoted_object,
@@ -40,12 +40,12 @@ module FbMarketing
 	    		self.targeting = attributes[:targeting]
 	    		puts "FB MARKETING TARGETING OUTPUT: #{self.targeting}"
 	    	end
-	    	if attributes.include?(:start_time)
-	    		self.start_time = Time.parse(attributes[:start_time]).iso8601
-	    	end
-	    	if attributes.include?(:end_time)
-	    		self.end_time = Time.parse(attributes[:end_time]).iso8601
-	    	end
+	    	# if attributes.include?(:start_time)
+	    	# 	self.start_time = Time.parse(attributes[:start_time]).iso8601
+	    	# end
+	    	# if attributes.include?(:end_time)
+	    	# 	self.end_time = Time.parse(attributes[:end_time]).iso8601
+	    	# end
 	    end
 
 	end
