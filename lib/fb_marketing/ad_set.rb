@@ -23,7 +23,9 @@ module FbMarketing
 				:end_time,
 				# :execution_options, # array
 				# :promoted_object,
-				:targeting
+				:targeting,
+				:conversions_specs,
+				:targeting_specs
 			]
 	    )
 
