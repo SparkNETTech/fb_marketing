@@ -41,7 +41,11 @@ module FbMarketing
 	    		self.start_time = attributes[:start_time].to_datetime.iso8601
 	    	end
 	    	if attributes.include?(:end_time)
-	    		self.end_time = attributes[:end_time].to_datetime.iso8601
+	    		if attributes[:end_time] == 0
+	    			self.end_time = 0
+	    		else
+	    			self.end_time = attributes[:end_time].to_datetime.iso8601
+	    		end
 	    	end
 	    end
 
