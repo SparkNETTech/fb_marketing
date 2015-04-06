@@ -23,22 +23,22 @@ module FbMarketing
 				:end_time,
 				# :execution_options, # array
 				# :promoted_object,
-				:targeting,
-				:conversions_specs,
-				:targeting_specs
+				:targeting
+				#:conversions_specs, # pixels
+				#:targeting_specs # pixels
 			]
 	    )
 
 		def initialize(id, attributes = {})
 	    	super
 	    	if attributes.include?(:bid_info)
-	    		# todo
-	    		self.bid_info = attributes[:bid_info]
+	    		Rails.logger.info attributes[:bid_info]
+	    		self.bid_info = Struct::BidInfo.new(attributes[:bid_info])
+	    		Rails.logger.info self.bid_info
 	    	end
 	    	if attributes.include?(:targeting)
-	    		# todo
 	    		Rails.logger.info attributes[:targeting]
-	    		self.targeting = attributes[:targeting]
+	    		self.targeting = Struct::Targeting.new(attributes[:targeting])
 	    		Rails.logger.info self.targeting
 	    	end
 	    	if attributes.include?(:start_time)
