@@ -30,17 +30,17 @@ module FbMarketing
 					self.countries = FbGraph2::Collection.new(attributes[:countries])
 				end
 				if attributes.include?(:regions)
-					self.regions = Collection.new(attributes[:regions]).collect! do |param|
+					self.regions = FbGraph2::Collection.new(attributes[:regions]).collect! do |param|
 						Key.new param
 					end
 				end
 				if attributes.include?(:cities)
-					self.cities = Collection.new(attributes[:cities]).collect! do |param|
+					self.cities = FbGraph2::Collection.new(attributes[:cities]).collect! do |param|
 						City.new param
 					end
 				end
 				if attributes.include?(:zips)
-					self.zips = Collection.new(attributes[:zips]).collect! do |param|
+					self.zips = FbGraph2::Collection.new(attributes[:zips]).collect! do |param|
 						Key.new param
 					end
 				end

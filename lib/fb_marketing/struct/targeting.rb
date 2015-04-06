@@ -30,34 +30,34 @@ module FbMarketing
 					self.geo_locations = Struct::GeoLocation.new(attributes[:geo_locations])
 				end
 				if attributes.include?(:page_types)
-					self.page_types = Collection.new([attributes[:page_types]])
+					self.page_types = FbGraph2::Collection.new([attributes[:page_types]])
 				end
 				if attributes.include?(:industries)
-					self.industries = Collection.new(attributes[:industries]).collect! do |param|
+					self.industries = FbGraph2::Collection.new(attributes[:industries]).collect! do |param|
 						IdName.new param
 					end
 				end
 				if attributes.include?(:genders)
-					self.genders = Collection.new([attributes[:genders]])
+					self.genders = FbGraph2::Collection.new([attributes[:genders]])
 				end
 				if attributes.include?(:interests)
-					self.interests = Collection.new(attributes[:interests]).collect! do |param|
+					self.interests = FbGraph2::Collection.new(attributes[:interests]).collect! do |param|
 						IdName.new param
 					end
 				end
 				if attributes.include?(:behaviors)
-					self.behaviors = Collection.new(attributes[:behaviors]).collect! do |param|
+					self.behaviors = FbGraph2::Collection.new(attributes[:behaviors]).collect! do |param|
 						IdName.new param
 					end
 				end
 				if attributes.include?(:connections)
-					self.connections = Collection.new(attributes[:connections])
+					self.connections = FbGraph2::Collection.new(attributes[:connections])
 				end
 				if attributes.include?(:excluded_connections)
-					self.excluded_connections = Collection.new(attributes[:excluded_connections])
+					self.excluded_connections = FbGraph2::Collection.new(attributes[:excluded_connections])
 				end
 				if attributes.include?(:friends_of_connections)
-					self.friends_of_connections = Collection.new(attributes[:friends_of_connections])
+					self.friends_of_connections = FbGraph2::Collection.new(attributes[:friends_of_connections])
 				end
 			end
 
