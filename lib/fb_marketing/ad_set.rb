@@ -33,13 +33,13 @@ module FbMarketing
 	    	super
 	    	if attributes.include?(:bid_info)
 	    		Rails.logger.info attributes[:bid_info]
-	    		self.bid_info = Struct::BidInfo.new(attributes[:bid_info])
-	    		Rails.logger.info self.bid_info
+	    		self.bid_info = Struct::BidInfo.new(attributes[:bid_info]).as_json
+	    		Rails.logger.info self.bid_info.inspect
 	    	end
 	    	if attributes.include?(:targeting)
 	    		Rails.logger.info attributes[:targeting]
 	    		self.targeting = Struct::Targeting.new(attributes[:targeting])
-	    		Rails.logger.info self.targeting
+	    		Rails.logger.info self.targeting.inspect
 	    	end
 	    	if attributes.include?(:start_time)
 	    		self.start_time = DateTime.parse(attributes[:start_time].to_s).iso8601.to_s
