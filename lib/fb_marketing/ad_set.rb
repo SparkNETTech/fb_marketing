@@ -1,3 +1,5 @@
+require 'json'
+
 module FbMarketing
 	class AdSet < FbGraph2::Node
 		
