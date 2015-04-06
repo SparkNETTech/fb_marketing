@@ -2,8 +2,8 @@ module FbMarketing
 	class Struct
 		class BidInfo < Struct
 			register_attributes(
-				custom: [
-					:CLICKS#,
+				raw: [
+					:CLICKS
 					#:IMPRESSIONS,
 					#:ACTIONS,
 					#:REACH,
@@ -12,11 +12,11 @@ module FbMarketing
 				]
 			)
 
-			def initialize(attributes = {})
-				if attributes.include?(:CLICKS)
-					self.CLICKS = attributes[:CLICKS].to_json
-				end
-			end
+			# def initialize(attributes = {})
+			# 	if attributes.include?(:CLICKS)
+			# 		self.CLICKS = attributes[:CLICKS].to_json
+			# 	end
+			# end
 
 		end
 	end
