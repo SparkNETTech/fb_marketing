@@ -27,7 +27,7 @@ module FbMarketing
 
 			def initialize(attributes = {})
 				if attributes.include?(:geo_locations)
-					self.geo_locations = Struct::GeoLocations.new(attributes[:geo_locations])
+					self.geo_locations = Struct::GeoLocation.new(attributes[:geo_locations])
 				end
 				if attributes.include?(:page_types)
 					self.page_types = Collection.new([attributes[:page_types]])
