@@ -3,3 +3,7 @@ module FbMarketing
 
 	end
 end
+
+Dir[File.join(__dir__, 'struct/*.rb')].each do |file|
+	require file
+end

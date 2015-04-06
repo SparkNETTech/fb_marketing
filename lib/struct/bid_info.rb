@@ -1,5 +1,5 @@
 module FbMarketing
-	class Struct < FbGraph2::Struct
+	class Struct
 		class BidInfo < Struct
 			register_attributes(
 				raw: [

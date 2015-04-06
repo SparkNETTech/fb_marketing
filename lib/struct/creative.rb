@@ -1,5 +1,5 @@
 module FbMarketing
-	class Struct < FbGraph2::Struct
+	class Struct
 		class Creative < Struct
 			register_attributes(
 				raw: [:creative_id]

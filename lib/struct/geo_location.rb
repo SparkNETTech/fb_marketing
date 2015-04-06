@@ -1,5 +1,5 @@
 module FbMarketing
-	class Struct < FbGraph2::Struct
+	class Struct
 		class GeoLocation < Struct
 			register_attributes(
 				custom: [
