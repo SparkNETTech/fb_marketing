@@ -52,6 +52,7 @@ module FbMarketing
 	    			self.end_time = DateTime.parse(attributes[:end_time].to_s).iso8601.to_s
 	    		end
 	    	end
+	    	Rails.logger.info "FINAL: #{self.inspect}"
 	    end
 
 	end
