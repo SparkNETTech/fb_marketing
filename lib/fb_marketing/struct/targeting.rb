@@ -38,7 +38,7 @@ module FbMarketing
 					end
 				end
 				if attributes.include?(:genders)
-					self.genders = FbGraph2::Collection.new([attributes[:genders]])
+					self.genders = FbGraph2::Collection.new(attributes[:genders])
 				end
 				if attributes.include?(:interests)
 					self.interests = FbGraph2::Collection.new(attributes[:interests]).collect! do |param|
