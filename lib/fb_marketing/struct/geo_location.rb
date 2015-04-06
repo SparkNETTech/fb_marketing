@@ -27,7 +27,7 @@ module FbMarketing
 
 			def initialize(attributes = {})
 				if attributes.include?(:countries)
-					self.countries = Collection.new(attributes[:countries])
+					self.countries = FbGraph2::Collection.new(attributes[:countries])
 				end
 				if attributes.include?(:regions)
 					self.regions = Collection.new(attributes[:regions]).collect! do |param|
