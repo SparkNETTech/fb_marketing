@@ -33,7 +33,7 @@ module FbMarketing
 	    	super
 	    	if attributes.include?(:bid_info)
 	    		Rails.logger.info attributes[:bid_info]
-	    		self.bid_info = Struct::BidInfo.new(attributes[:bid_info]).as_json
+	    		self.bid_info = Struct::BidInfo.new(attributes[:bid_info]).to_json
 	    		Rails.logger.info self.bid_info.inspect
 	    	end
 	    	if attributes.include?(:targeting)
