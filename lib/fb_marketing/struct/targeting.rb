@@ -30,7 +30,7 @@ module FbMarketing
 					self.geo_locations = Struct::GeoLocation.new(attributes[:geo_locations])
 				end
 				if attributes.include?(:page_types)
-					self.page_types = FbGraph2::Collection.new([attributes[:page_types]])
+					self.page_types = FbGraph2::Collection.new(attributes[:page_types])
 				end
 				if attributes.include?(:industries)
 					self.industries = FbGraph2::Collection.new(attributes[:industries]).collect! do |param|
