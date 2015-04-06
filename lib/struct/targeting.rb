@@ -7,101 +7,59 @@ module FbMarketing
 					:age_max,
 				],
 				custom: [
-					:geo_locations, #hash
-					:page_types, #array of single string
-					:industries,
-					:genders, #array of int 1 or int 2 or nothing at all as default
-					:interests, # array of objects of :id, :name
+					:geo_locations, # hash of arrays of hashes
+					:page_types, # array of single string
+					:industries, # array of {id, name}
+					:genders, # array of int 1 or int 2 or nothing at all as default
+					:interests, # array of {id, name}
 					:behaviors, # ^
 					:connections, # array of ids
-					:excluded_connections, #^
-					:friends_of_connections #^
+					:excluded_connections, # ^
+					:friends_of_connections # ^
 				]
 			)
 
-			# def initialize(attributes = {})
-			# 	if attributes.include?(:geo_locations)
-			# 		self.geo_locations =
-			# 	end
-			# 	if attributes.include?(:page_types)
-			# 		self. = 
-			# 	end
-			# 	if attributes.include?(:industries)
-			# 		self. = 
-			# 	end
-			# 	if attributes.include?(:genders)
-			# 		self. = 
-			# 	end
-			# 	if attributes.include?(:interests)
-			# 		self. = 
-			# 	end
-			# 	if attributes.include?(:behaviors)
-			# 		self. = 
-			# 	end
-			# 	if attributes.include?(:connections)
-			# 		self. = 
-			# 	end
-			# 	if attributes.include?(:excluded_connections)
-			# 		self. = 
-			# 	end
-			# 	if attributes.include?(:friends_of_connections)
-			# 		self. = 
-			# 	end
-			# end
+			class IdName < Struct
+				register_attributes(
+					raw: [:id, :name]
+				)
+			end
 
-			# class GeoLocations < Struct
-			# 	register_attributes(
-
-			# 	)
-			# end
-
-			# class PageTypes < Struct
-			# 	register_attributes(
-					
-			# 	)
-			# end
-
-			# class Industries < Struct
-			# 	register_attributes(
-					
-			# 	)
-			# end
-
-			# class Genders < Struct
-			# 	register_attributes(
-					
-			# 	)
-			# end
-
-			# class GeoLocations < Struct
-			# 	Interests(
-					
-			# 	)
-			# end
-
-			# class Behaviors < Struct
-			# 	register_attributes(
-					
-			# 	)
-			# end
-
-			# class ExcludedConnections < Struct
-			# 	register_attributes(
-					
-			# 	)
-			# end
-
-			# class Connections < Struct
-			# 	register_attributes(
-					
-			# 	)
-			# end
-
-			# class FriendsOfConnections < Struct
-			# 	register_attributes(
-					
-			# 	)
-			# end
+			def initialize(attributes = {})
+				if attributes.include?(:geo_locations)
+					self.geo_locations = Struct::GeoLocations.new(attributes[:geo_locations])
+				end
+				if attributes.include?(:page_types)
+					self.page_types = Collection.new([attributes[:page_types]])
+				end
+				if attributes.include?(:industries)
+					self.industries = Collection.new(attributes[:industries]).collect! do |param|
+						IdName.new param
+					end
+				end
+				if attributes.include?(:genders)
+					self.genders = Collection.new([attributes[:genders]])
+				end
+				if attributes.include?(:interests)
+					self.interests = Collection.new(attributes[:interests]).collect! do |param|
+						IdName.new param
+					end
+				end
+				if attributes.include?(:behaviors)
+					self.behaviors = Collection.new(attributes[:behaviors]).collect! do |param|
+						IdName.new param
+					end
+				end
+				if attributes.include?(:connections)
+					self.connections = Collection.new(attributes[:connections])
+				end
+				if attributes.include?(:excluded_connections)
+					self.excluded_connections = Collection.new(attributes[:excluded_connections])
+				end
+				if attributes.include?(:friends_of_connections)
+					self.friends_of_connections = Collection.new(attributes[:friends_of_connections])
+				end
+			end
 
 		end
 	end
