@@ -39,9 +39,9 @@ module FbMarketing
 	    	if attributes.include?(:targeting)
 	    		Rails.logger.info "Targeting input: #{attributes[:targeting].inspect}"
 	    		self.targeting = Struct::Targeting.new(attributes[:targeting])
-	    		test = Struct::Targeting.new(attributes[:targeting]).to_json
+	    		@test = Struct::Targeting.new(attributes[:targeting]).to_json
 	    		Rails.logger.info "Targeting struct: #{self.targeting.inspect}"
-	    		Rails.logger.info "Targeting struct TEST tojson: #{self.test.inspect}"
+	    		Rails.logger.info "Targeting struct TEST tojson: #{@test.inspect}"
 	    	end
 	    	if attributes.include?(:start_time)
 	    		self.start_time = DateTime.parse(attributes[:start_time].to_s).iso8601.to_s
