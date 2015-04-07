@@ -27,19 +27,23 @@ module FbMarketing
 
 			def initialize(attributes = {})
 				super
-				Rails.logger.info "---START GEOLOCATION INIT: #{self.inspect}"
+				Rails.logger.info "---POST SUPER GEOLOCATION: #{self.inspect}"
 				if attributes.include?(:countries)
 					self.countries = FbGraph2::Collection.new(attributes[:countries])
 				end
 				if attributes.include?(:regions)
 					self.regions = FbGraph2::Collection.new(attributes[:regions]).collect! do |param|
+						Rails.logger.info "new region: #{param.inspect}"
 						Key.new param
 					end
+					Rails.logger.info "end of regions collection: #{self.regions.inspect}"
 				end
 				if attributes.include?(:cities)
 					self.cities = FbGraph2::Collection.new(attributes[:cities]).collect! do |param|
+						Rails.logger.info "new city: #{param.inspect}"
 						City.new param
 					end
+					Rails.logger.info "end of cities collection: #{self.regions.inspect}"
 				end
 				if attributes.include?(:zips)
 					self.zips = FbGraph2::Collection.new(attributes[:zips]).collect! do |param|
