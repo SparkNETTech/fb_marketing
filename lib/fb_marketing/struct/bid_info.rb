@@ -13,6 +13,7 @@ module FbMarketing
 			)
 
 			# def initialize(attributes = {})
+			# 	super
 			# 	if attributes.include?(:CLICKS)
 			# 		self.CLICKS = attributes[:CLICKS].to_json
 			# 	end

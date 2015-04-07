@@ -33,15 +33,15 @@ module FbMarketing
 	    	super
 	    	Rails.logger.info "---POST SUPER AD SET: #{self.inspect}"
 	    	if attributes.include?(:bid_info)
-	    		#self.bid_info = Struct::BidInfo.new(attributes[:bid_info])
-	    		self.bid_info = attributes[:bid_info]
+	    		self.bid_info = Struct::BidInfo.new(attributes[:bid_info])
+	    		#self.bid_info = attributes[:bid_info]
 	    	end
 	    	if attributes.include?(:targeting)
-	    		Rails.logger.info "Targeting input: #{attributes[:targeting].inspect}"
-	    		#self.targeting = Struct::Targeting.new(attributes[:targeting])
-	    		self.targeting = Struct::Targeting.new(attributes[:targeting]).to_json
+	    		Rails.logger.info "---Targeting input: #{attributes[:targeting].inspect}"
+	    		self.targeting = Struct::Targeting.new(attributes[:targeting])
+	    		#self.targeting = Struct::Targeting.new(attributes[:targeting]).to_json
 	    		#@test2 = Struct::Targeting.new(attributes[:targeting]).to_json(:include => {:geo_locations => {:include => [:cities, :regions, :zips]}})
-	    		Rails.logger.info "Targeting struct: #{self.targeting.inspect}"
+	    		Rails.logger.info "---Targeting struct: #{self.targeting.inspect}"
 	    		#Rails.logger.info "Targeting struct TEST tojson: #{@test.inspect}"
 	    		#Rails.logger.info "Targeting struct TEST tojson: #{@test2.inspect}"
 	    	end
