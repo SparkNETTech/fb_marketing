@@ -43,7 +43,7 @@ module FbMarketing
 						Rails.logger.info "new city: #{param.inspect}"
 						City.new param
 					end
-					Rails.logger.info "end of cities collection: #{self.regions.inspect}"
+					Rails.logger.info "end of cities collection: #{self.cities.inspect}"
 				end
 				if attributes.include?(:zips)
 					self.zips = FbGraph2::Collection.new(attributes[:zips]).collect! do |param|
