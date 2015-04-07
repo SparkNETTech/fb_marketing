@@ -31,16 +31,13 @@ module FbMarketing
 
 		def initialize(id, attributes = {})
 	    	super
+	    	Rails.logger.info "---POST SUPER AD SET: #{self.inspect}"
 	    	if attributes.include?(:bid_info)
-	    		Rails.logger.info attributes[:bid_info]
 	    		#self.bid_info = Struct::BidInfo.new(attributes[:bid_info])
 	    		self.bid_info = attributes[:bid_info]
-	    		Rails.logger.info self.bid_info.inspect
 	    	end
 	    	if attributes.include?(:targeting)
-	    		Rails.logger.info attributes[:targeting]
 	    		self.targeting = Struct::Targeting.new(attributes[:targeting])
-	    		Rails.logger.info self.targeting.inspect
 	    	end
 	    	if attributes.include?(:start_time)
 	    		self.start_time = DateTime.parse(attributes[:start_time].to_s).iso8601.to_s
@@ -52,7 +49,7 @@ module FbMarketing
 	    			self.end_time = DateTime.parse(attributes[:end_time].to_s).iso8601.to_s
 	    		end
 	    	end
-	    	Rails.logger.info "FINAL: #{self.inspect}"
+	    	Rails.logger.info "---FINAL AD SET: #{self.inspect}"
 	    end
 
 	end

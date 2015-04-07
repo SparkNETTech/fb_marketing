@@ -26,6 +26,7 @@ module FbMarketing
 			end
 
 			def initialize(attributes = {})
+				Rails.logger.info "---START TARGETING INIT: #{self.inspect}"
 				if attributes.include?(:geo_locations)
 					self.geo_locations = Struct::GeoLocation.new(attributes[:geo_locations])
 				end
@@ -59,6 +60,7 @@ module FbMarketing
 				if attributes.include?(:friends_of_connections)
 					self.friends_of_connections = FbGraph2::Collection.new(attributes[:friends_of_connections])
 				end
+				Rails.logger.info "---END TARGETING INIT: #{self.inspect}"
 			end
 
 		end
