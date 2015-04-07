@@ -26,6 +26,7 @@ module FbMarketing
 			end
 
 			def initialize(attributes = {})
+				super
 				Rails.logger.info "---START TARGETING INIT: #{self.inspect}"
 				if attributes.include?(:geo_locations)
 					self.geo_locations = Struct::GeoLocation.new(attributes[:geo_locations])

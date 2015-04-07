@@ -26,6 +26,7 @@ module FbMarketing
 			end
 
 			def initialize(attributes = {})
+				super
 				Rails.logger.info "---START GEOLOCATION INIT: #{self.inspect}"
 				if attributes.include?(:countries)
 					self.countries = FbGraph2::Collection.new(attributes[:countries])
