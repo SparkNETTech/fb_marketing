@@ -1,5 +1,5 @@
 module FbMarketing
-	class AdSet < FbGraph2::Node
+	class AdSet < Node
 		
 		register_attributes(
 			raw: [ 
