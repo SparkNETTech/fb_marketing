@@ -56,7 +56,7 @@ module FbMarketing
 	    		end
 	    	end
 	    	Rails.logger.info "---FINAL AD SET: #{self.inspect}"
-	    end
+	   end
 
 	end
 end
