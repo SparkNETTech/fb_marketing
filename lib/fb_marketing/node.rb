@@ -1,7 +1,7 @@
 module FbMarketing
 	class Node < FbGraph2::Node
 
-		cattr_accessor :registered_attributes
+		cattr_accessor :attributes
 
 		def update(options = {})#, params)
 			# params = self.compact.attributes.to_query
@@ -9,8 +9,10 @@ module FbMarketing
 			Rails.logger.warn self
 			Rails.logger.warn self.inspect
 			params = "?access_token=" + self.access_token
-			self.class.registered_attributes.each do |key, value|
-				params += "&#{key}=#{value}" unless key == :access_token
+			self.attributes.each do |key, value|
+				Rails.logger.info key
+				Rails.logger.info value
+				params += "&#{key}=#{value}" unless (key == "access_token" || key == "raw")
 			end
 			Rails.logger.warn "-----PARAMS:  "
 			Rails.logger.warn params
