@@ -1,15 +1,16 @@
 module FbMarketing
 	class Node < FbGraph2::Node
 
-		cattr_accessor :attributes
+		cattr_accessor :class_attributes
 
 		def update(options = {})#, params)
 			# params = self.compact.attributes.to_query
 			Rails.logger.warn "-----SELF:  "
 			Rails.logger.warn self
 			Rails.logger.warn self.inspect
+			Rails.logger.warn self.class.class_attributes.inspect
 			params = "?access_token=" + self.access_token
-			self.attributes.each do |key, value|
+			self.class.class_attributes.each do |key, value|
 				Rails.logger.info key
 				Rails.logger.info value
 				params += "&#{key}=#{value}" unless (key == "access_token" || key == "raw")
