@@ -8,12 +8,14 @@ module FbMarketing
 			Rails.logger.warn self.inspect
 			Rails.logger.warn self.instance_variables.inspect
 			params = "?access_token=" + self.access_token
-			Rails.logger.warn "-----KEY, VALUE, SELF[KEY]:  "
-			self.instance_variables.each do |key, value|
+			Rails.logger.warn "-----KEY, SELF[KEY]:  "
+			self.instance_variables.each do |key|
 				Rails.logger.info key
-				Rails.logger.info value
-				Rails.logger.info self[key]
-				params += "&#{key.to_s}=#{self[key]}" unless (key == "access_token" || key == "raw_attributes" || key == "id")
+				Rails.logger.info key.to_s[1..-1]
+				Rails.logger.info self.instance_variable_get("@#{key}")
+				k = key.to_s[1..-1]
+				v = self.instance_variable_get("@#{key}")
+				params += "&#{k}=#{v}" unless (key == "access_token" || key == "raw_attributes" || key == "id")
 			end
 			Rails.logger.warn "-----PARAMS:  "
 			Rails.logger.warn params
