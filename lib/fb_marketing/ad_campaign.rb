@@ -1,5 +1,5 @@
 module FbMarketing
-	class AdCampaign < Node
+	class AdCampaign < NodeTest
 		
 		register_attributes(
 			raw: [
