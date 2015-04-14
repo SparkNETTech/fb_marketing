@@ -1,4 +1,5 @@
 require 'fb_graph2'
+require 'active_record'
 require 'active_support'
 require 'active_support/core_ext'
 require 'rack/oauth2'
