@@ -1,7 +1,11 @@
 module FbMarketing
 	class Node < FbGraph2::Node
 
-		cattr_accessor :class_attributes
+		extend ActiveSupport::Concern
+
+		included do
+			cattr_accessor :class_attributes
+		end
 
 		def update(options = {})#, params)
 			# params = self.compact.attributes.to_query
