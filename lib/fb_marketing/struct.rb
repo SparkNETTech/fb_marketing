@@ -1,5 +1,5 @@
 module FbMarketing
-	class Struct < FbGraph2::Struct
+	class Struct
 		def self.inherited(klass)
 			klass.send :include, AttributeAssigner
 		end
