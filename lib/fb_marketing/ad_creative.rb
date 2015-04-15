@@ -28,7 +28,7 @@ module FbMarketing
 	    	super
 	    	if attributes.include?(:object_story_spec)
 	    		Rails.logger.info "---OBJSS input: #{attributes[:object_story_spec].inspect}"
-	    		self.targeting = Struct::ObjectStorySpec.new(attributes[:object_story_spec]).to_json
+	    		self.object_story_spec = Struct::ObjectStorySpec.new(attributes[:object_story_spec]).to_json
 	    		Rails.logger.info "---OBJSS structured: #{self.object_story_spec.inspect}"
 	    	end
 	   end
