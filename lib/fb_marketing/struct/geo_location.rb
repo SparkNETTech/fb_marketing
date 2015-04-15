@@ -35,7 +35,7 @@ module FbMarketing
 					#self.regions = FbGraph2::Collection.new(attributes[:regions])
 					self.regions = FbGraph2::Collection.new(attributes[:regions]).collect! do |param|
 						Rails.logger.info "new region: #{param.inspect}"
-						region = Key.new param
+						region = Struct::GeoLocation::Key.new param
 						Rails.logger.info "saved as: #{region.inspect}"
 						region
 					end
@@ -45,7 +45,7 @@ module FbMarketing
 					#self.cities = FbGraph2::Collection.new(attributes[:cities])
 					self.cities = FbGraph2::Collection.new(attributes[:cities]).collect! do |param|
 						Rails.logger.info "new city: #{param.inspect}"
-						city = City.new param
+						city = Struct::GeoLocation::City.new param
 						Rails.logger.info "saved as: #{city.inspect}"
 						city
 					end
