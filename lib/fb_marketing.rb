@@ -4,9 +4,10 @@ require 'active_support/core_ext'
 require 'rack/oauth2'
 
 module FbMarketing
-	mattr_accessor :root_url, :api_version
+	mattr_accessor :root_url, :api_version, :object_classes
 	self.root_url = "https://graph.facebook.com"
-	self.api_version = "v2.2"
+	self.api_version = "v2.3"
+	self.object_classes = Array.new
 
 	 class << self
 

@@ -4,7 +4,7 @@ module FbMarketing
 
 		def self.inherited(klass)
 			klass.send :include, AttributeAssigner
-			FbGraph2.object_classes << klass
+			FbMarketing.object_classes << klass
 		end
 
 		def initialize(id, attributes = {})
