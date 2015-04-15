@@ -9,21 +9,15 @@ module FbMarketing
 				# :objective, # string
 				# :redownload, # bool
 			],
-			custom: [
-				#:bid_info,
-				:creative#,
-				# :conversion_specs, # json object
-				# :tracking_specs, # object
-				# :social_prefs # array of string values
+			json: [
+				:creative
 			]
 	    )
 
-	    def initialize(id, attributes = {})
-	    	super
-	    	if attributes.include?(:creative)
-	    		self.creative = Struct::Creative.attributes[:creative]
-	    	end
-	    end
+		def create(options = {})
+			self.id = "act_" + self.id + "/adgroups"
+			post options
+		end
 
 	end
 end

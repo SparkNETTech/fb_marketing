@@ -16,20 +16,26 @@ module FbMarketing
 				:link_url,
 				:url_tags
 			],
+			json: [
+				:image_crops
+			],
 			custom: [
-				:image_crops,
-				:object_story_spec,
+				:object_story_spec
 			]
 	   )
 
 		def initialize(id, attributes = {})
 	    	super
-	    	if attributes.include?(:image_crops)
-	    		self.image_crops = { '191x100' => attributes[:image_crops] }
-	    	end
 	    	if attributes.include?(:object_story_spec)
-	    		# todo
+	    		Rails.logger.info "---OBJSS input: #{attributes[:object_story_spec].inspect}"
+	    		self.targeting = Struct::ObjectStorySpec.new(attributes[:object_story_spec]).to_json
+	    		Rails.logger.info "---OBJSS structured: #{self.object_story_spec.inspect}"
 	    	end
+	   end
+
+	   def create(options = {})
+	   	self.id = "act_" + self.id + "/adcreatives"
+	   	post options
 	   end
 
 	end
