@@ -17,9 +17,11 @@ module FbMarketing
 
     def assign(attributes)
       Array(self.class.registered_attributes).each do |type, keys|
+        Rails.logger.info "-------START ASSIGN: #{type}, #{keys.inspect}"
         keys.each do |key|
+          Rails.logger.info "-----KEY: #{key}"
           if attributes.include? key
-            Rails.logger.info "---KEY: #{key}: #{attributes[key]}"
+            Rails.logger.info "---KEY INCLUDED: #{attributes[key]}"
             raw = attributes[key]
             value = case type
             when :raw

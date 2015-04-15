@@ -5,14 +5,14 @@ module FbMarketing
 			raw: [ 
 				:name,
 				:adgroup_status,
-				:campaign_id#,
+				:campaign_id
 				# :objective, # string
 				# :redownload, # bool
 			],
 			json: [
 				:creative
 			]
-	    )
+	   )
 
 		def create(options = {})
 			self.id = "act_" + self.id + "/adgroups"
