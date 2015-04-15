@@ -19,6 +19,7 @@ module FbMarketing
       Array(self.class.registered_attributes).each do |type, keys|
         keys.each do |key|
           if attributes.include? key
+            Rails.logger.info "---KEY: #{key}: #{attributes[key]}"
             raw = attributes[key]
             value = case type
             when :raw
@@ -36,6 +37,7 @@ module FbMarketing
             else
               next
             end
+            Rails.logger.info "---VALUE: #{value}"
             self.send :"#{key}=", value
           end
         end
