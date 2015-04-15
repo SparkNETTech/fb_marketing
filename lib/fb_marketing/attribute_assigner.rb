@@ -27,7 +27,7 @@ module FbMarketing
             when :int_flag
               raw == 1
             when :json 
-              raw.as_json
+              raw.to_json
             when :iso8601
               if raw == 0 # catch end_time of 0 (FB default for no end_time)
                 0
