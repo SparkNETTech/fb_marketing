@@ -1,5 +1,18 @@
 module FbMarketing
 	class Node < FbGraph2::Node
+		attr_accessor :id, :access_token, :raw_attributes
+
+		def self.inherited(klass)
+			klass.send :include, AttributeAssigner
+			FbGraph2.object_classes << klass
+		end
+
+		def initialize(id, attributes = {})
+			self.id = id
+			self.raw_attributes = attributes
+			assign attributes if respond_to? :assign
+			authenticate attributes[:access_token] if attributes.include? :access_token
+		end
 
 		def update(options = {})
 	   	post options
