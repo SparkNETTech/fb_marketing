@@ -25,6 +25,14 @@ module FbMarketing
               raw
             when :int_flag
               raw == 1
+            when :json 
+              raw.as_json
+            when :iso8601
+              if raw == 0 # catch end_time of 0 (FB default for no end_time)
+                0
+              else
+                DateTime.parse(raw.to_s).iso8601.to_s
+              end
             else
               next
             end

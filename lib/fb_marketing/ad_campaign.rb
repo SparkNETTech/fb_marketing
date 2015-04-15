@@ -11,23 +11,9 @@ module FbMarketing
 			]
 	    )
 
-		def create_to_fb(options = {})
-	   	Rails.logger.info "-------create to fb: self:  #{self.inspect}"
+		def create(options = {})
 	   	self.id = "act_" + self.id + "/adcampaign_groups"
-	   	# params = ""
-	   	# params += "?campaign_group_status=" + self.campaign_group_status.to_s if self.campaign_group_status
-	   	# params += "&name=" + self.name if self.name
-	   	# Rails.logger.info "-------params:  #{params}"
-	   	update options#, params
-	   end
-
-	   def update_to_fb(options = {})
-	   	Rails.logger.info "-------update to fb: self:  #{self.inspect}"
-	   	# params = ""
-	   	# params += "?campaign_group_status=" + self.campaign_group_status.to_s if self.campaign_group_status
-	   	# params += "&name=" + self.name if self.name
-	   	# Rails.logger.info "-------params:  #{params}"
-	   	update options#, params
+	   	post options
 	   end
 
 	end
