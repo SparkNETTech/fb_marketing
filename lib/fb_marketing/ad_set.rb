@@ -33,7 +33,7 @@ module FbMarketing
 	    	Rails.logger.info "---POST SUPER AD SET: #{self.inspect}"
 	    	if attributes.include?(:targeting)
 	    		Rails.logger.info "---Targeting input: #{attributes[:targeting].inspect}"
-	    		self.targeting = Struct::Targeting.new(attributes[:targeting]).as_json
+	    		self.targeting = Struct::Targeting.new(attributes[:targeting]).to_json
 	    		#self.targeting = Struct::Targeting.new(attributes[:targeting]).to_json
 	    		#@test2 = Struct::Targeting.new(attributes[:targeting]).to_json(:include => {:geo_locations => {:include => [:cities, :regions, :zips]}})
 	    		Rails.logger.info "---Targeting structured: #{self.targeting.inspect}"
