@@ -34,8 +34,8 @@ module FbMarketing
 
 				def initialize(attributes = {})
 					super
-					if attributes.include?(:call_to_action)
-						self.call_to_action = Struct::LinkData::CallToAction::Value.new(attributes[:call_to_action])
+					if attributes.include?(:value)
+						self.value = Struct::LinkData::CallToAction::Value.new(attributes[:value])
 					end
 				end
 			end
