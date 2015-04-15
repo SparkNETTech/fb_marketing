@@ -32,16 +32,22 @@ module FbMarketing
 					self.countries = FbGraph2::Collection.new(attributes[:countries])
 				end
 				if attributes.include?(:regions)
+					#self.regions = FbGraph2::Collection.new(attributes[:regions])
 					self.regions = FbGraph2::Collection.new(attributes[:regions]).collect! do |param|
 						Rails.logger.info "new region: #{param.inspect}"
-						Key.new param
+						region = Key.new param
+						Rails.logger.info "saved as: #{region.inspect}"
+						region
 					end
 					Rails.logger.info "end of regions collection: #{self.regions.inspect}"
 				end
 				if attributes.include?(:cities)
+					#self.cities = FbGraph2::Collection.new(attributes[:cities])
 					self.cities = FbGraph2::Collection.new(attributes[:cities]).collect! do |param|
 						Rails.logger.info "new city: #{param.inspect}"
-						City.new param
+						city = City.new param
+						Rails.logger.info "saved as: #{city.inspect}"
+						city
 					end
 					Rails.logger.info "end of cities collection: #{self.cities.inspect}"
 				end
