@@ -1,6 +1,6 @@
 module FbMarketing
 	class Ad < Node
-		
+
 		register_attributes(
 			raw: [ 
 				:name,
@@ -13,6 +13,10 @@ module FbMarketing
 				:creative
 			]
 	   )
+
+	   def initialize(id, attributes = {})
+	   	super
+	   end
 
 		def create(options = {})
 			self.id = "act_" + self.id + "/adgroups"
