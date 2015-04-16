@@ -10,8 +10,10 @@ module FbMarketing
 
     module ClassMethods
       def register_attributes(attributes)
+        Rails.logger.info "-----REGISTER ATTRIBUTES: #{attributes}"
         self.registered_attributes = attributes
         send :attr_accessor, *attributes.values.flatten
+        Rails.logger.info "---self registered: #{self.registered_attributes}"
       end
     end
 
