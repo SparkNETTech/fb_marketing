@@ -18,7 +18,7 @@ module FbMarketing
     def assign(attributes)
       Rails.logger.info "------CLASS: #{self.class}"
       Rails.logger.info "------attribs:  #{attributes.inspect}"
-      Rails.logger.info "------registered: #{self.class.registered_attributes.inspect}"
+      Rails.logger.info "------registered: #{self.class.registered_attributes_test.inspect}"
       Array(self.class.registered_attributes_test).each do |type, keys|
         Rails.logger.info "-------START ASSIGN: #{type}, #{keys.inspect}"
         keys.each do |key|
