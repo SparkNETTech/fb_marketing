@@ -10,11 +10,11 @@ module FbMarketing
 
 		def initialize(id, attributes = {})
 			Rails.logger.info "---INITIALIZE: #{id},  ATTR: #{attributes.inspect}"
+			Rails.logger.info "---------fbmarketing object classes: #{FbMarketing.object_classes.inspect}"
 			self.id = id
 			self.raw_attributes = attributes
 			assign attributes if respond_to? :assign
 			authenticate attributes[:access_token] if attributes.include? :access_token
-			Rails.logger.info "---------fbmarketing object classes: #{FbMarketing.object_classes.inspect}"
 		end
 
 		def update(options = {})
