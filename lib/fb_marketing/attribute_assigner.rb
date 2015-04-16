@@ -1,10 +1,24 @@
 module FbMarketing
   module AttributeAssigner
-    include FbGraph2::AttributeAssigner
+    extend ActiveSupport::Concern
+
+    included do
+      extend ClassMethods
+      attr_accessor :raw_attributes
+      cattr_accessor :registered_attributes
+    end
+
+    module ClassMethods
+      def register_attributes(attributes)
+        self.registered_attributes = attributes
+        send :attr_accessor, *attributes.values.flatten
+      end
+    end
 
     def assign(attributes)
       Rails.logger.info "------CLASS: #{self.class}"
       Rails.logger.info "------attribs:  #{attributes.inspect}"
+      Rails.logger.info "------registered: #{self.class.registered_attributes.inspect}"
       Array(self.class.registered_attributes).each do |type, keys|
         Rails.logger.info "-------START ASSIGN: #{type}, #{keys.inspect}"
         keys.each do |key|
