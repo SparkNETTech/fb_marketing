@@ -16,6 +16,11 @@ end
 
 require_relative 'fb_marketing/attribute_assigner'
 require_relative 'fb_marketing/node'
-Dir[File.join(__dir__, 'fb_marketing/*.rb')].each do |file|
-  require file
+[
+  '',
+  'request_filter'
+].each do |dir|
+  Dir[File.join(__dir__, 'fb_marketing', dir, '*.rb')].each do |file|
+    require file
+  end
 end

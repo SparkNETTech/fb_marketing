@@ -1,6 +1,7 @@
 module FbMarketing
 	class Node < FbGraph2::Node
 		attr_accessor :id, :access_token, :raw_attributes
+		alias_method :identifier, :id
 
 		def self.inherited(klass)
 			#Rails.logger.info "---SELF.INHERITED: #{klass.inspect}"
