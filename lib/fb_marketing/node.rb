@@ -1,21 +1,21 @@
 module FbMarketing
 	class Node < FbGraph2::Node
-		# attr_accessor :id, :access_token, :raw_attributes
-		# alias_method :identifier, :id
+		attr_accessor :id, :access_token, :raw_attributes
+		alias_method :identifier, :id
 
-		# def self.inherited(klass)
-		# 	klass.send :include, AttributeAssigner
-		# 	FbMarketing.object_classes << klass
-		# end
+		def self.inherited(klass)
+			klass.send :include, AttributeAssigner
+			FbMarketing.object_classes << klass
+		end
 
-		# def initialize(id, attributes = {})
-		# 	Rails.logger.info "---INITIALIZE: #{id},  ATTR: #{attributes.inspect}"
-		# 	Rails.logger.info "---------fbmarketing object classes: #{FbMarketing.object_classes.inspect}"
-		# 	self.id = id
-		# 	self.raw_attributes = attributes
-		# 	assign attributes if respond_to? :assign
-		# 	authenticate attributes[:access_token] if attributes.include? :access_token
-		# end
+		def initialize(id, attributes = {})
+			Rails.logger.info "---INITIALIZE: #{id},  ATTR: #{attributes.inspect}"
+			Rails.logger.info "---------fbmarketing object classes: #{FbMarketing.object_classes.inspect}"
+			self.id = id
+			self.raw_attributes = attributes
+			assign attributes if respond_to? :assign
+			authenticate attributes[:access_token] if attributes.include? :access_token
+		end
 
 		def update(options = {})
 	   	post options

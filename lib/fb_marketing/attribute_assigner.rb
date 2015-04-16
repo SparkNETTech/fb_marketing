@@ -3,14 +3,14 @@ module FbMarketing
     extend ActiveSupport::Concern
 
     included do
-      extend ClassMethods
+      extend ClassMethodsTest
       attr_accessor :raw_attributes
-      cattr_accessor :registered_attributes
+      cattr_accessor :registered_attributes_test
     end
 
-    module ClassMethods
+    module ClassMethodsTest
       def register_attributes(attributes)
-        self.registered_attributes = attributes
+        self.registered_attributes_test = attributes
         send :attr_accessor, *attributes.values.flatten
       end
     end
@@ -19,7 +19,7 @@ module FbMarketing
       Rails.logger.info "------CLASS: #{self.class}"
       Rails.logger.info "------attribs:  #{attributes.inspect}"
       Rails.logger.info "------registered: #{self.class.registered_attributes.inspect}"
-      Array(self.class.registered_attributes).each do |type, keys|
+      Array(self.class.registered_attributes_test).each do |type, keys|
         Rails.logger.info "-------START ASSIGN: #{type}, #{keys.inspect}"
         keys.each do |key|
           Rails.logger.info "-----KEY: #{key}"
