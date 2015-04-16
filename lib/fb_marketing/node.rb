@@ -3,10 +3,10 @@ module FbMarketing
 		attr_accessor :id, :access_token, :raw_attributes
 
 		def self.inherited(klass)
-			Rails.logger.info "---SELF.INHERITED: #{klass.inspect}"
+			#Rails.logger.info "---SELF.INHERITED: #{klass.inspect}"
 			klass.send :include, AttributeAssigner
 			FbMarketing.object_classes << klass
-			Rails.logger.info "---fbmarketing object classes: #{FbMarketing.object_classes.inspect}"
+			#Rails.logger.info "---fbmarketing object classes: #{FbMarketing.object_classes.inspect}"
 		end
 
 		def initialize(id, attributes = {})
