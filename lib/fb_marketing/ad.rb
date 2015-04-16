@@ -14,10 +14,6 @@ module FbMarketing
 			]
 	   )
 
-	   def initialize(id, attributes = {})
-	   	super
-	   end
-
 		def create(options = {})
 			self.id = "act_" + self.id + "/adgroups"
 			post options
