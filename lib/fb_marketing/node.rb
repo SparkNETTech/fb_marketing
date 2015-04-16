@@ -3,11 +3,14 @@ module FbMarketing
 		attr_accessor :id, :access_token, :raw_attributes
 
 		def self.inherited(klass)
+			Rails.logger.info "---SELF.INHERITED: #{klass.inspect}"
 			klass.send :include, AttributeAssigner
 			FbMarketing.object_classes << klass
+			Rails.logger.info "---fbmarketing object classes: #{FbMarketing.object_classes.inspect}"
 		end
 
 		def initialize(id, attributes = {})
+			Rails.logger.info "---INITIALIZE: #{id},  ATTR: #{attributes.inspect}"
 			self.id = id
 			self.raw_attributes = attributes
 			assign attributes if respond_to? :assign
@@ -20,7 +23,7 @@ module FbMarketing
 
 		def post(options = {})
 			# params = self.compact.attributes.to_query
-			Rails.logger.info "-----SELF:  "
+			Rails.logger.info "-----POSTING, SELF:  "
 			Rails.logger.info self.inspect
 			Rails.logger.info self.instance_variables.inspect
 			params = "?access_token=" + self.access_token
