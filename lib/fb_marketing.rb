@@ -9,9 +9,9 @@ module FbMarketing
 	self.api_version = "v2.3"
 	self.object_classes = Array.new
 
-	 class << self
-
-	 end
+	class << self
+			
+	end
 end
 
 require_relative 'fb_marketing/attribute_assigner'

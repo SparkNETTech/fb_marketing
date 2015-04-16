@@ -4,10 +4,8 @@ module FbMarketing
 		alias_method :identifier, :id
 
 		def self.inherited(klass)
-			#Rails.logger.info "---SELF.INHERITED: #{klass.inspect}"
 			klass.send :include, AttributeAssigner
 			FbMarketing.object_classes << klass
-			#Rails.logger.info "---fbmarketing object classes: #{FbMarketing.object_classes.inspect}"
 		end
 
 		def initialize(id, attributes = {})
@@ -16,6 +14,7 @@ module FbMarketing
 			self.raw_attributes = attributes
 			assign attributes if respond_to? :assign
 			authenticate attributes[:access_token] if attributes.include? :access_token
+			Rails.logger.info "---------fbmarketing object classes: #{FbMarketing.object_classes.inspect}"
 		end
 
 		def update(options = {})
