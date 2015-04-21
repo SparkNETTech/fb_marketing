@@ -42,9 +42,9 @@ module MockGraph
 
   def endpoint_for(path, options = {})
     api_version = unless options[:disable_api_versioning]
-      options[:api_version] || FbGraph2.api_version
+      options[:api_version] || FbMarketing.api_version
     end
-    File.join FbGraph2.root_url, api_version.to_s, path
+    File.join FbMarketing.root_url, api_version.to_s, path
   end
 
   def request_for(method, options = {})

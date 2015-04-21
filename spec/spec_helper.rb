@@ -4,9 +4,9 @@ SimpleCov.start do
   add_filter 'spec'
 end
 
-#require 'rspec'
-#require 'rspec/its'
-#require 'fb_graph2'
+require 'rspec'
+require 'rspec/its'
+require 'fb_graph2'
 require 'fb_marketing'
 
 RSpec.configure do |config|
