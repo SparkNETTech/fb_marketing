@@ -1,8 +1,18 @@
 require 'spec_helper'
 
-describe FbMarketing::AdCampaign, '.fetch' do
-	# pretty sure this is mostly covered by fb_graph2::node
-	# it 'should get the ad campaign' do
-	# 	mock_graph :get, 'act_123456', 'adcampaigns_group', :access_token => 'access_token' do
+describe FbMarketing::AdCampaign do
+	let(:instance) { FbMarketing::AdCampaign.new 'identifier', {access_token: 'ABC'} }
+
+	context 'instance' do
+		subject { instance }
+
+		describe '#create' do
+			it 'should modify identifier and POST to API' do
+				expect do
+					instance.create
+				end.to request_to 'act_identifier/adcampaign_groups', :post
+			end
+		end
+	end
 
 end

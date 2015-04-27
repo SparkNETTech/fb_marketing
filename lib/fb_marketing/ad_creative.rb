@@ -27,9 +27,9 @@ module FbMarketing
 		def initialize(id, attributes = {})
 	    	super
 	    	if attributes.include?(:object_story_spec)
-	    		Rails.logger.info "---OBJSS input: #{attributes[:object_story_spec].inspect}"
+	    		# Rails.logger.info "---OBJSS input: #{attributes[:object_story_spec].inspect}"
 	    		self.object_story_spec = Struct::ObjectStorySpec.new(attributes[:object_story_spec]).to_json
-	    		Rails.logger.info "---OBJSS structured: #{self.object_story_spec.inspect}"
+	    		# Rails.logger.info "---OBJSS structured: #{self.object_story_spec.inspect}"
 	    	end
 	   end
 

@@ -26,8 +26,22 @@ module FbMarketing
 				:agency_client_declaration,
 				:spend_cap,
 				:amount_spent
+			],
+			unix_time: [
+				:start_time,
+				:end_time
 			]
-	    )
+		)
+
+		def fetch_stats(options = {})
+			self.id = self.id + "/stats"
+	   	get options
+		end
+
+		def fetch_stats_by_ad_set(options = {})
+			self.id = "act_" + self.id + "/adcampaignstats"
+	   	get options
+		end
 
 	end
 end

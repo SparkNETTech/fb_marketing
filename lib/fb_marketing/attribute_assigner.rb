@@ -39,6 +39,8 @@ module FbMarketing
               else
                 DateTime.parse(raw.to_s).iso8601.to_s
               end
+            when :unix_time
+              DateTime.parse(raw.to_s).to_time.to_i.to_s
             else
               next
             end

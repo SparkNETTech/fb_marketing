@@ -1,0 +1,13 @@
+page_id: '123'
+link_data:
+  call_to_action:
+    type: 'TYPE'
+    value:
+      link: 'www.test.com'
+      link_caption: 'headline'
+  link: 'www.test.com'
+  picture: 'www.test.com/picture'
+  message: 'message'
+  image_crops:
+    191x100: '[[0,29], [259,164]]'
+  description: 'description'

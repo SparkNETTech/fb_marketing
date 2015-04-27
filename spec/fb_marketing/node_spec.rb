@@ -47,7 +47,7 @@ describe FbMarketing::Node do
 
 	context 'instance' do
 		subject { instance }
-		# it { should_not respond_to :assign }
+		it { should respond_to :assign }
 
 		describe '#initialize' do
 			its(:id) { should == 'identifier' }
