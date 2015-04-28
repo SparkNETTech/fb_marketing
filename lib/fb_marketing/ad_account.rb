@@ -35,6 +35,7 @@ module FbMarketing
 
 		def fetch_user_connection_objects(options = {}, params = {})
 			self.id = "act_" + self.id + "/connectionobjects"
+			Rails.logger.error "------self id: #{self.id}"
 			fetch options, params
 		end
 

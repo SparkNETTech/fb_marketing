@@ -18,6 +18,7 @@ module FbMarketing
 		end
 
 		def fetch(options = {}, params = {})
+			Rails.logger.error "---- FETCH: #{options.inspect}, #{params.inspect}"
 			get options, params
 		end
 
@@ -32,6 +33,7 @@ module FbMarketing
 	   protected
 
 	   def get(options = {}, params = {})
+	   	Rails.logger.error "--- GET: #{options}, #{params}"
 			handle_response do
 				http_client.get build_endpoint(options), build_params(params)
 			end
@@ -52,6 +54,7 @@ module FbMarketing
 		private
 
 		def build_params(params = {})
+			Rails.logger.error "---BUILD PARAMS:  #{params}"
 			# no passed params means we are passing key:value pairs to FB, build these params from object
 			if params.empty?
 				# params = self.compact.attributes.to_query
@@ -67,14 +70,17 @@ module FbMarketing
 					#Rails.logger.info v.inspect
 					params += "&#{k}=#{v}" unless (k == "access_token" || k == "raw_attributes" || k == "id")
 				end
+				Rails.logger.error "-EMPTY PARAMS: return params: #{params}"
 				return params
 			# passing in params means we are requesting specific fields from fb, use FbGraph2
 			else
+				Rails.logger.error "-NOT EMPTY PARAMS: GO TO SUPER"
 				super
 			end
 		end
 
 		def build_endpoint(options = {})
+			Rails.logger.error "BUILDING ENDPOINT"
 			File.join [
 				File.join(
 					FbMarketing.root_url,
