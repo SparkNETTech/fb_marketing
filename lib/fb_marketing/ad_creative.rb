@@ -35,7 +35,7 @@ module FbMarketing
 
 	   def create(options = {})
 	   	self.id = "act_" + self.id + "/adcreatives"
-	   	post options
+	   	update options
 	   end
 
 	end

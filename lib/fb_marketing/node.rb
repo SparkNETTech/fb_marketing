@@ -17,55 +17,60 @@ module FbMarketing
 			authenticate attributes[:access_token] if attributes.include? :access_token
 		end
 
+		def fetch(options = {}, params = {})
+			get options, params
+		end
+
 		def update(options = {})
 	   	post options
 	   end
 
-	   def get(options = {})
-			# params = self.compact.attributes.to_query
-			#Rails.logger.info "-----GETTING, SELF:  "
-			#Rails.logger.info self.inspect
-			#Rails.logger.info self.instance_variables.inspect
-			params = "?access_token=" + self.access_token
-			#Rails.logger.info "-----KEY, SELF[KEY]:  "
-			self.instance_variables.each do |key|
-				k = key.to_s[1..-1]
-				v = self.instance_variable_get("#{key}")
-				#Rails.logger.info k.inspect
-				#Rails.logger.info v.inspect
-				params += "&#{k}=#{v}" unless (k == "access_token" || k == "raw_attributes" || k == "id")
-			end
-			#Rails.logger.info "-----PARAMS:  "
-			#Rails.logger.info params
+	   def destroy(options = {})
+	   	delete options
+	   end
+
+	   protected
+
+	   def get(options = {}, params = {})
 			handle_response do
-				#Rails.logger.info "-----options, build_endpoint, params:"
-				#Rails.logger.info build_endpoint(options)
-				## Rails.logger.info params
-				http_client.get build_endpoint(options), params
+				http_client.get build_endpoint(options), build_params(params)
 			end
 		end
 
 		def post(options = {})
-			# params = self.compact.attributes.to_query
-			#Rails.logger.info "-----POSTING, SELF:  "
-			#Rails.logger.info self.inspect
-			#Rails.logger.info self.instance_variables.inspect
-			params = "?access_token=" + self.access_token
-			#Rails.logger.info "-----KEY, SELF[KEY]:  "
-			self.instance_variables.each do |key|
-				k = key.to_s[1..-1]
-				v = self.instance_variable_get("#{key}")
-				#Rails.logger.info k.inspect
-				#Rails.logger.info v.inspect
-				params += "&#{k}=#{v}" unless (k == "access_token" || k == "raw_attributes" || k == "id")
-			end
-			#Rails.logger.info "-----PARAMS:  "
-			#Rails.logger.info params
 			handle_response do
-				#Rails.logger.info "-----options, build_endpoint, params:"
-				#Rails.logger.info build_endpoint(options)
-				## Rails.logger.info params
-				http_client.post build_endpoint(options), params
+				http_client.post build_endpoint(options), build_params
+			end
+		end
+
+		def delete(options = {})
+			handle_response do
+				http_client.delete build_endpoint(options), build_params
+			end
+		end
+
+		private
+
+		def build_params(params = {})
+			# no passed params means we are passing key:value pairs to FB, build these params from object
+			if params.empty?
+				# params = self.compact.attributes.to_query
+				#Rails.logger.info "-----POSTING, SELF:  "
+				#Rails.logger.info self.inspect
+				#Rails.logger.info self.instance_variables.inspect
+				params = "?access_token=" + self.access_token
+				#Rails.logger.info "-----KEY, SELF[KEY]:  "
+				self.instance_variables.each do |key|
+					k = key.to_s[1..-1]
+					v = self.instance_variable_get("#{key}")
+					#Rails.logger.info k.inspect
+					#Rails.logger.info v.inspect
+					params += "&#{k}=#{v}" unless (k == "access_token" || k == "raw_attributes" || k == "id")
+				end
+				return params
+			# passing in params means we are requesting specific fields from fb, use FbGraph2
+			else
+				super
 			end
 		end
 
