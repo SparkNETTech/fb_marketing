@@ -28,7 +28,7 @@ module FbMarketing
 			]
 		)
 
-		def fetch(options = {}, params = {})
+		def fetch_account_info(options = {}, params = {})
 	   	self.id = "act_" + self.id
 	   	fetch options, params
 	   end
