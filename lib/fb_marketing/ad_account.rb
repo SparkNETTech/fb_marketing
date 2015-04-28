@@ -1,5 +1,5 @@
 module FbMarketing
-	class AdAccount < FbGraph2::Node
+	class AdAccount < Node
 		
 		register_attributes(
 			raw: [

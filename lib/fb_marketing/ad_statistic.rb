@@ -1,5 +1,5 @@
 module FbMarketing
-	class AdStatistic < FbGraph2::Node
+	class AdStatistic < Node
 		
 		# to do, separate specific types?
 		register_attributes(
