@@ -11,6 +11,9 @@ module FbMarketing
 			],
 			json: [
 				:creative
+			],
+			fields: [
+				:fields
 			]
 	   )
 
