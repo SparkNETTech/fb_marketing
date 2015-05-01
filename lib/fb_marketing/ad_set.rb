@@ -19,6 +19,9 @@ module FbMarketing
 			json: [
 				:bid_info
 			],
+			fields: [
+				:fields
+			],
 			custom: [
 				:targeting
 				# :execution_options, # array
@@ -30,19 +33,36 @@ module FbMarketing
 
 		def initialize(id, attributes = {})
 	    	super
-	    	#Rails.logger.info "---POST SUPER AD SET: #{self.inspect}"
 	    	if attributes.include?(:targeting)
-	    		#Rails.logger.info "---Targeting input: #{attributes[:targeting].inspect}"
 	    		self.targeting = Struct::Targeting.new(attributes[:targeting]).to_json
-	    		#Rails.logger.info "---Targeting structured: #{self.targeting.inspect}"
 	    	end
-	    	#Rails.logger.info "---FINAL AD SET: #{self.inspect}"
 	   end
 
 	   def create(options = {})
 	   	self.id = "act_" + self.id + "/adcampaigns"
 	   	update options
 	   end
+
+	   def read_by_ad_campaign(options = {})
+	   	self.id = self.id + "/adcampaigns"
+	   	read options
+	   end
+
+	   def read_by_ad_account(options = {})
+	   	self.id = "act_" + self.id + "/adcampaigns"
+	   	read options
+	   end
+
+	   # CONNECTIONS, append connection name to identifier
+	   def adgroups
+			self.id = self.id + "/adgroups"
+		end
+		def adcreatives
+			self.id = self.id + "/adcreatives"
+		end
+		def stats
+			self.id = self.id + "/stats"
+		end
 
 	end
 end

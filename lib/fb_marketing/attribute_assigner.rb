@@ -41,6 +41,8 @@ module FbMarketing
               end
             when :unix_time
               DateTime.parse(raw.to_s).to_time.to_i.to_s
+            when :fields
+              FbGraph2::Collection.new(raw)
             else
               next
             end

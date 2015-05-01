@@ -19,6 +19,9 @@ module FbMarketing
 			json: [
 				:image_crops
 			],
+			fields: [
+				:fields
+			],
 			custom: [
 				:object_story_spec
 			]
@@ -27,15 +30,23 @@ module FbMarketing
 		def initialize(id, attributes = {})
 	    	super
 	    	if attributes.include?(:object_story_spec)
-	    		# Rails.logger.info "---OBJSS input: #{attributes[:object_story_spec].inspect}"
 	    		self.object_story_spec = Struct::ObjectStorySpec.new(attributes[:object_story_spec]).to_json
-	    		# Rails.logger.info "---OBJSS structured: #{self.object_story_spec.inspect}"
 	    	end
 	   end
 
 	   def create(options = {})
 	   	self.id = "act_" + self.id + "/adcreatives"
 	   	update options
+	   end
+
+	   def read_by_ad_set(options = {})
+	   	self.id = self.id + "/adcreatives"
+	   	read options
+	   end
+
+	   def read_by_ad_account(options = {})
+	   	self.id = "act_" + self.id + "/adcreatives"
+	   	read options
 	   end
 
 	end
