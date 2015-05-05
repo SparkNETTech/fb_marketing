@@ -15,7 +15,7 @@ module FbMarketing
 				#:id, # type=adTargetingCategory
 				:audience_size, # type=adTargetingCategory
 				:description, # type=adTargetingCategory
-				:class#,  # type=adTargetingCategory
+				#:class#,  # type=adTargetingCategory
 			],
 			simple_array: [
 				:countries,
