@@ -1,33 +1,33 @@
 module FbMarketing
 	class TargetingSearch < Node
 
-		register_attributes(
-			raw: [
-				:q,
-				:type,
-				:want_localized_name,
-				:list,
-				:limit,
-				:region_id, # type=adgeolocation
-				:country_code, # type=adgeolocation
-				:locale, # type=adinterest
-				:name, # type=adTargetingCategory
-				:id, # type=adTargetingCategory
-				:audience_size, # type=adTargetingCategory
-				:description, # type=adTargetingCategory
-				:class#,  # type=adTargetingCategory
-			]
-			# ],
-			# simple_array: [
-			# 	:countries,
-			# 	:regions,
-			# 	:cities,
-			# 	:zips,
-			# 	:location_types, # type=adgeolocation
-			# 	:interest_list, #type=adinterestsuggestion
-			# 	:path#, # type=adTargetingCategory
-			# ]
-		)
+		# register_attributes(
+		# 	raw: [
+		# 		:q,
+		# 		:type,
+		# 		:want_localized_name,
+		# 		:list,
+		# 		:limit,
+		# 		:region_id, # type=adgeolocation
+		# 		:country_code, # type=adgeolocation
+		# 		:locale, # type=adinterest
+		# 		:name, # type=adTargetingCategory
+		# 		:id, # type=adTargetingCategory
+		# 		:audience_size, # type=adTargetingCategory
+		# 		:description, # type=adTargetingCategory
+		# 		:class#,  # type=adTargetingCategory
+		# 	]
+		# 	# ],
+		# 	# simple_array: [
+		# 	# 	:countries,
+		# 	# 	:regions,
+		# 	# 	:cities,
+		# 	# 	:zips,
+		# 	# 	:location_types, # type=adgeolocation
+		# 	# 	:interest_list, #type=adinterestsuggestion
+		# 	# 	:path#, # type=adTargetingCategory
+		# 	# ]
+		# )
 
 		# def initialize(id, attributes = {})
 	 #    	super
