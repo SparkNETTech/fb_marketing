@@ -15,7 +15,8 @@ module FbMarketing
 				:id, # type=adTargetingCategory
 				:audience_size, # type=adTargetingCategory
 				:description, # type=adTargetingCategory
-				#:class#,  # type=adTargetingCategory
+				#:class#, # RUBY RESERVED KEYWORD
+				:reserved_class
 			],
 			simple_array: [
 				:countries,
@@ -32,6 +33,9 @@ module FbMarketing
 	    	super
 	    	Rails.logger.error "TARGETING SEARCH: #{self.inspect}"
 	    	self.id = "search"
+	    	# if attributes.include?(:class)
+	    	# 	self.class = FbGraph2::Collection.new(attributes[:class])
+	    	# end
 	    	# if attributes.include?(:countries)
 	    	# 	self.countries = FbGraph2::Collection.new(attributes[:countries])
 	    	# end

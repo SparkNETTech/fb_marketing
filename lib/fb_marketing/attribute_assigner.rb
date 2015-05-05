@@ -48,7 +48,10 @@ module FbMarketing
             else
               next
             end
-            Rails.logger.info "---VALUE: #{value}"
+            if key.to_s.start_with?("reserved_")
+              key = key.to_s[8..-1]
+            end
+            Rails.logger.info "---KEY:VALUE: #{key}: #{value}"
             self.send :"#{key}=", value
           end
         end
