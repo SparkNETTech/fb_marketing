@@ -14,7 +14,7 @@ module FbMarketing
 				:name, # type=adTargetingCategory
 				:id, # type=adTargetingCategory
 				:audience_size, # type=adTargetingCategory
-				:description#, # type=adTargetingCategory
+				:description, # type=adTargetingCategory
 				#:class#, # RUBY RESERVED KEYWORD
 				:reserved_class
 			],
