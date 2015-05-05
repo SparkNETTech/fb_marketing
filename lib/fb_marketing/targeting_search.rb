@@ -30,7 +30,8 @@ module FbMarketing
 
 		def initialize(id, attributes = {})
 	    	super
-	    	self.id = "/search"
+	    	Rails.logger.error "TARGETING SEARCH: #{self.inspect}"
+	    	self.id = "search"
 	    	# if attributes.include?(:countries)
 	    	# 	self.countries = FbGraph2::Collection.new(attributes[:countries])
 	    	# end
