@@ -4,7 +4,7 @@ module FbMarketing
 		register_attributes(
 			raw: [
 				:q,
-				#:type,
+				:type,
 				:want_localized_name,
 				:list,
 				:limit,
@@ -12,7 +12,7 @@ module FbMarketing
 				:country_code, # type=adgeolocation
 				:locale, # type=adinterest
 				:name, # type=adTargetingCategory
-				#:id, # type=adTargetingCategory
+				:id, # type=adTargetingCategory
 				:audience_size, # type=adTargetingCategory
 				:description, # type=adTargetingCategory
 				#:class#,  # type=adTargetingCategory
