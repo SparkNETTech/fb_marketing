@@ -72,6 +72,9 @@ module FbMarketing
 					params = "&fields=" + v.join(',').to_s
 					next
 				end
+				if k.start_with?("reserved_")
+              k = k[9..-1]
+            end
 				params += "&#{k}=#{v}" unless (k == "access_token" || k == "raw_attributes" || k == "id")
 			end
 			params = params.insert(0, "?access_token=" + self.access_token)
