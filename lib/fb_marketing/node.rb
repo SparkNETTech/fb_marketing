@@ -9,7 +9,7 @@ module FbMarketing
 		end
 
 		def initialize(id, attributes = {})
-			#Rails.logger.info "---INITIALIZE: #{id},  ATTR: #{attributes.inspect}"
+			Rails.logger.info "---INITIALIZE: #{id},  ATTR: #{attributes.inspect}"
 			#Rails.logger.info "---------fbmarketing object classes: #{FbMarketing.object_classes.inspect}"
 			self.id = id
 			self.raw_attributes = attributes
