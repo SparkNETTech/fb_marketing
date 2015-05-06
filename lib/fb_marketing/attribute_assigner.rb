@@ -23,7 +23,6 @@ module FbMarketing
         Rails.logger.info "-------START ASSIGN: #{type}, #{keys.inspect}"
         keys.each do |key|
           Rails.logger.info "-----KEY: #{key}"
-          Rails.logger.info "-----attribs: #{attributes}"
           if attributes.include? key
             Rails.logger.info "---KEY INCLUDED: #{attributes[key]}"
             raw = attributes[key]
@@ -47,6 +46,7 @@ module FbMarketing
             when :fields
               FbGraph2::Collection.new(raw)
             else
+              Rails.logger.info "--- GOING TO NEXT"
               next
             end
             # if key.to_s.start_with?("reserved_")
@@ -54,9 +54,14 @@ module FbMarketing
             # end
             Rails.logger.info "---KEY:VALUE: #{key}: #{value}"
             self.send :"#{key}=", value
+          else
+            Rails.logger.info "--- DID NOT INCLUDE"
           end
+          Rails.logger.info "--- END KEY"
         end
+        Rails.logger.info "--- END KEYs.each"
       end
+      Rails.logger.info "--- END ARRAY of attributes"
     end
 
   end
