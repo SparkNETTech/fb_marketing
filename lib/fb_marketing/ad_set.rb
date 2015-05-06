@@ -7,7 +7,7 @@ module FbMarketing
 				:campaign_group_id,
 				:campaign_status,
 				:daily_budget,
-				# :is_autobid, # bool
+				:is_autobid, # bool
 				:lifetime_budget,
 				# :redownload, # bool
 				:name
