@@ -83,8 +83,8 @@ module FbMarketing
 		end
 
 		def build_endpoint(options = {})
-			Rails.logger.error "BUILDING ENDPOINT"
-			File.join [
+			Rails.logger.error "---BUILDING ENDPOINT with options: #{options}"
+			endpoint = File.join [
 				File.join(
 					FbMarketing.root_url,
 					options[:api_version] || FbMarketing.api_version,
@@ -93,6 +93,8 @@ module FbMarketing
 				options[:edge],
 				FbGraph2::Util.as_identifier(options[:edge_scope])
 			].compact.collect(&:to_s)
+			Rails.logger.error "---BUILT ENDPOINT FINAL: #{endpoint}"
+			return endpoint
 		end
 
 	end
