@@ -23,6 +23,7 @@ module FbMarketing
         Rails.logger.info "-------START ASSIGN: #{type}, #{keys.inspect}"
         keys.each do |key|
           Rails.logger.info "-----KEY: #{key}"
+          Rails.logger.info "-----attribs: #{attributes}"
           if attributes.include? key
             Rails.logger.info "---KEY INCLUDED: #{attributes[key]}"
             raw = attributes[key]
