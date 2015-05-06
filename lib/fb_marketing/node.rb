@@ -77,7 +77,7 @@ module FbMarketing
             end
 				params += "&#{k}=#{v}" unless (k == "access_token" || k == "raw_attributes" || k == "id")
 			end
-			params = params.insert(0, "?access_token=" + self.access_token)
+			params = params.insert(0, "access_token=" + self.access_token)
 			Rails.logger.info "----END PARAMS/FIELDS: #{params}"
 			return params
 		end
