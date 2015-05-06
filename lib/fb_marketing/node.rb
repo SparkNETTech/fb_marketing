@@ -79,6 +79,8 @@ module FbMarketing
 			end
 			params = params.insert(0, "access_token=" + self.access_token)
 			Rails.logger.info "----END PARAMS/FIELDS: #{params}"
+			params = params.gsub(/\s/, "%20")
+			Rails.logger.info "----SPACE REPLACED FINAL PARAMS/FIELDS: #{params}"
 			return params
 		end
 
