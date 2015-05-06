@@ -16,11 +16,11 @@ module FbMarketing
 
 			def initialize(attributes = {})
 				super
-				# Rails.logger.info "---POST SUPER OBJSS: #{self.inspect}"
+				Rails.logger.info "---POST SUPER OBJSS: #{self.inspect}"
 				if attributes.include?(:link_data)
 					self.link_data = Struct::LinkData.new(attributes[:link_data])
 				end
-				# Rails.logger.info "---END OBJSS INIT: #{self.inspect}"
+				Rails.logger.info "---END OBJSS INIT: #{self.inspect}"
 			end
 
 		end

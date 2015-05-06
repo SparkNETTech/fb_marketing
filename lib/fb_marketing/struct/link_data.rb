@@ -34,9 +34,11 @@ module FbMarketing
 
 				def initialize(attributes = {})
 					super
+					Rails.logger.info "---POST SUPER CallToAction:VALUE: #{self.inspect}"
 					if attributes.include?(:value)
 						self.value = Struct::LinkData::CallToAction::Value.new(attributes[:value])
 					end
+					Rails.logger.info "---END CallToAction:VALUE INIT: #{self.inspect}"
 				end
 			end
 

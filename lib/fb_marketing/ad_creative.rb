@@ -30,7 +30,7 @@ module FbMarketing
 		def initialize(id, attributes = {})
 	    	super
 	    	if attributes.include?(:object_story_spec)
-	    		self.object_story_spec = Struct::ObjectStorySpec.new(attributes[:object_story_spec]).to_json
+	    		self.object_story_spec = Struct::ObjectStorySpec.new(attributes[:object_story_spec])
 	    	end
 	   end
 
