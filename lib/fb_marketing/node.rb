@@ -31,7 +31,7 @@ module FbMarketing
 	   end
 
 	   def destroy(options = {})
-	   	destroy options
+	   	delete options
 	   end
 
 	   protected
